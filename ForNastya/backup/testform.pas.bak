@@ -1,0 +1,70 @@
+unit TestForm;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ExtCtrls, NastysUnit;
+
+type
+
+  { TForm2 }
+
+  TForm2 = class(TForm)
+    Memo1: TMemo;
+    Memo2: TMemo;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
+  private
+    { private declarations }
+  public
+        procedure veiwTestInfo(first:integer; second:integer);
+        procedure getOutArr(numElem:integer);
+    { public declarations }
+  end;
+
+var
+  Form2: TForm2;
+  inArr:outArr;
+  iterator:integer;
+
+implementation
+
+{$R *.lfm}
+
+procedure TForm2.FormPaint(Sender: TObject);
+var i:integer;
+begin
+     for i:= 0 to Length(inArr[0]) - 1 do
+         begin
+           Memo1.Append(FloatToStr(inArr[0,i]) + ' ');
+           Memo2.Append(FloatToStr(inArr[1,i]) + ' ');
+         end;
+end;
+
+procedure TForm2.getOutArr(numElem:integer);
+Begin
+     SetLength(inArr,2);
+     SetLength(inArr[0],numElem);
+     SetLength(inArr[1],numElem);
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  iterator:= 0;
+  inArr:= getOutArr(10);
+end;
+
+procedure TForm2.veiwTestInfo(first:integer; second:integer);
+begin
+     inArr[0,iterator]:= first;
+     inArr[1,iterator]:= second;
+     iterator:= iterator + 1;
+end;
+
+end.
+
