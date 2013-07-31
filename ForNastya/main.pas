@@ -13,7 +13,6 @@ type
   { TForm1 }
 
     TForm1 = class(TForm)
-        formImage: TImage;
         Timer1: TTimer;
         procedure FormCreate(Sender: TObject);
         procedure Timer1Timer(Sender: TObject);
@@ -119,11 +118,11 @@ begin
 
     buf:= TBitmap.Create;
 
-    buf.Height:=Form1.formImage.Height;
-    buf.Width:=Form1.formImage.Width;
+    buf.Height:=Form1.Height;
+    buf.Width:=Form1.Width;
 
     buf.Canvas.Brush.Color:=clWhite;
-    buf.Canvas.FillRect(0,0,Form1.formImage.Width,buf.Height);
+    buf.Canvas.FillRect(0,0,Form1.Width,Form1.Height);
 
     getBufer := buf;
 end;
@@ -203,7 +202,7 @@ begin
     else
         drowPoints(arr,buf);
 
-    Form1.formImage.Canvas.Draw(0,0,buf);
+    Form1.Canvas.Draw(0,0,buf);
 
     buf.Destroy;
 

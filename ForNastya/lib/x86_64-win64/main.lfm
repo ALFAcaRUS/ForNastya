@@ -1,20 +1,11 @@
 object Form1: TForm1
-  Left = 261
+  Left = 325
   Height = 500
-  Top = 21
+  Top = 91
   Width = 500
   Caption = 'Form1'
-  ClientHeight = 500
-  ClientWidth = 500
   OnCreate = FormCreate
   LCLVersion = '1.0.10.0'
-  object formImage: TImage
-    Left = 0
-    Height = 500
-    Top = 0
-    Width = 500
-    Align = alClient
-  end
   object Timer1: TTimer
     Interval = 30
     OnTimer = Timer1Timer
